@@ -14,24 +14,19 @@ export default function AnimatedButton({
   className = '',
   variant = 'primary'
 }: AnimatedButtonProps) {
-  const baseClasses = 'relative rounded-lg px-6 py-3 font-medium transition-all duration-300'
+  const baseClasses = 'relative overflow-hidden rounded-lg px-6 py-3 font-medium transition-all duration-300'
   const variantClasses = {
-    primary: 'bg-yinmn-blue text-platinum hover:bg-yinmn-blue/90',
-    secondary: 'bg-transparent border-2 border-yinmn-blue text-yinmn-blue dark:text-platinum hover:bg-yinmn-blue/10'
+    primary: 'bg-yinmn-blue text-platinum hover:bg-yinmn-blue/90 hover:scale-105',
+    secondary: 'bg-transparent border-2 border-yinmn-blue text-yinmn-blue dark:text-platinum hover:bg-yinmn-blue/10 hover:scale-105'
   }
 
   return (
-    <motion.div
-      className="rounded-lg"
-      whileHover={{ scale: 1.05 }}
+    <motion.button
+      onClick={onClick}
+      className={`${baseClasses} ${variantClasses[variant]} ${className}`}
       whileTap={{ scale: 0.98 }}
     >
-      <button
-        onClick={onClick}
-        className={`${baseClasses} ${variantClasses[variant]} ${className}`}
-      >
-        {children}
-      </button>
-    </motion.div>
+      {children}
+    </motion.button>
   )
 } 

@@ -60,37 +60,8 @@ export default function Home() {
       <section id="hero" className="relative min-h-[calc(100vh-8rem)] flex flex-col justify-center overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 -z-10">
-          {/* Street Light Effect */}
-          <div className="absolute top-0 right-[10%] w-[2px] h-[300px] bg-gradient-to-b from-silver-lake/30 to-transparent dark:from-silver-lake/20" />
-          <div className="absolute top-[290px] right-[calc(10%-12px)] w-[26px] h-[10px] bg-silver-lake/30 dark:bg-silver-lake/20 rounded-full" />
-          
-          {/* Light Beam */}
-          <div className="absolute top-[300px] right-[10%] w-[1px] origin-top">
-            <div className="relative w-[400px] h-[600px] -right-[200px]">
-              <div className="absolute inset-0 bg-gradient-radial from-yellow-100/10 via-yellow-100/5 to-transparent dark:from-yellow-100/5 dark:via-yellow-100/2 dark:to-transparent transform -rotate-15" />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-yellow-100/5 to-transparent dark:from-transparent dark:via-yellow-100/2 dark:to-transparent animate-pulse" />
-            </div>
-          </div>
-
-          {/* Animated Gradient Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-yinmn-blue/20 via-purple-500/10 to-pink-500/20 dark:from-yinmn-blue/30 dark:via-purple-500/20 dark:to-pink-500/30 animate-gradient-xy" />
-          
-          {/* Grid Pattern with Animation */}
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.03] dark:opacity-[0.07]" />
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-b from-transparent via-yinmn-blue/5 to-transparent"
-              animate={{
-                opacity: [0, 0.5, 0],
-                y: [0, 100, 0],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            />
-          </div>
+          {/* Test Background */}
+          <div className="absolute inset-0 bg-black" />
         </div>
 
         {/* Content */}

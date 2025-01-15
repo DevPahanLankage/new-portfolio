@@ -13,19 +13,15 @@ export default {
         'silver-lake': '#94A3B8',
         'platinum': '#E5E5E5',
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))',
+      },
       animation: {
         'gradient-x': 'gradient-x 15s ease infinite',
         'gradient-xy': 'gradient-xy 15s ease infinite',
         'text-shimmer': 'text-shimmer 2.5s ease-out infinite alternate',
         'name-gradient': 'name-gradient 8s linear infinite',
-        'pulse': 'pulse 4s ease-in-out infinite',
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-      },
-      rotate: {
-        '15': '15deg',
-        '-15': '-15deg',
       },
       keyframes: {
         'gradient-x': {
@@ -74,14 +70,6 @@ export default {
           },
           '100%': {
             'background-position': '100% 50%'
-          }
-        },
-        'pulse': {
-          '0%, 100%': {
-            opacity: 1
-          },
-          '50%': {
-            opacity: 0.5
           }
         }
       }
