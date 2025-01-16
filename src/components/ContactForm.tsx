@@ -15,16 +15,21 @@ export default function ContactForm() {
     setStatus('sending')
 
     try {
-      // Replace with your actual email service endpoint
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          access_key: '19952a92-d88f-439c-bc5d-367f501f2d78',
+          ...formData,
+          subject: `New message from ${formData.name}`,
+        }),
       })
 
-      if (response.ok) {
+      const data = await response.json()
+      
+      if (data.success) {
         setStatus('success')
         setFormData({ name: '', email: '', message: '' })
       } else {
@@ -33,6 +38,9 @@ export default function ContactForm() {
     } catch (error) {
       setStatus('error')
     }
+
+    // Reset status after 3 seconds
+    setTimeout(() => setStatus('idle'), 3000)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -44,26 +52,29 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="grid md:grid-cols-2 gap-8">
-      <div>
-        <h3 className="text-2xl font-medium tracking-tight mb-4 text-rich-black dark:text-platinum">
-          Let's Talk
-        </h3>
-        <p className="text-oxford-blue dark:text-silver-lake mb-6">
-          I'm always interested in hearing about new projects and opportunities.
-        </p>
-        
-        <div className="space-y-4">
-          <div className="flex items-center gap-3 text-oxford-blue dark:text-silver-lake">
+    <div className="grid md:grid-cols-2 gap-8 md:gap-14">
+      <div className="space-y-8">
+        <div>
+          <h3 className="text-2xl font-medium text-yinmn-blue dark:text-silver-lake mb-2">
+            Let's Connect
+          </h3>
+          <p className="text-oxford-blue dark:text-silver-lake">
+            Whether you have a project in mind or just want to chat about web development, I'm always open to new opportunities and collaborations.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-2xl font-medium text-yinmn-blue dark:text-silver-lake mb-3">Contact Details</h3>
+          <div className="flex items-center gap-3 text-oxford-blue dark:text-silver-lake mb-2">
             <EnvelopeIcon className="w-5 h-5" />
-            <a href="mailto:contact@pahanlankage.com" className="hover:text-yinmn-blue dark:hover:text-platinum transition-colors">
-              contact@pahanlankage.com
+            <a href="mailto:pahan.lankage@gmail.com" className="hover:text-yinmn-blue dark:hover:text-platinum transition-colors">
+              pahan.lankage@gmail.com
             </a>
           </div>
           <div className="flex items-center gap-3 text-oxford-blue dark:text-silver-lake">
             <PhoneIcon className="w-5 h-5" />
-            <a href="tel:+94777123456" className="hover:text-yinmn-blue dark:hover:text-platinum transition-colors">
-              +94 777 123 456
+            <a href="tel:+94760019446" className="hover:text-yinmn-blue dark:hover:text-platinum transition-colors">
+              +94 76 001 9446
             </a>
           </div>
         </div>
@@ -129,10 +140,10 @@ export default function ContactForm() {
         </div>
 
         <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
           type="submit"
           disabled={status === 'sending'}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           className="w-full px-6 py-3 bg-yinmn-blue text-platinum rounded-xl font-medium 
                    hover:bg-oxford-blue transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
@@ -144,7 +155,7 @@ export default function ContactForm() {
             Message sent successfully! I'll get back to you soon.
           </p>
         )}
-
+        
         {status === 'error' && (
           <p className="text-red-600 dark:text-red-400 text-sm">
             Something went wrong. Please try again later.

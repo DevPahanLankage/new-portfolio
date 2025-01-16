@@ -1,48 +1,76 @@
 import { motion } from 'framer-motion'
-import { FaReact, FaNodeJs, FaPython } from 'react-icons/fa'
-import { SiTypescript } from 'react-icons/si'
+import { FaReact, FaNodeJs, FaPython, FaHtml5, FaCss3Alt, FaGitAlt, FaGithub, FaPhp } from 'react-icons/fa'
+import { SiTypescript, SiJavascript, SiTailwindcss, SiMysql, SiChatbot } from 'react-icons/si'
+import { VscCode, VscCopilot, VscTerminalCmd } from 'react-icons/vsc'
 import ProjectCard from '../components/ProjectCard'
 import ContactForm from '../components/ContactForm'
-import TiltCard from '../components/TiltCard'
 import AnimatedButton from '../components/AnimatedButton'
 import { floatingAnimation } from '../utils/animations'
 
 const projects = [
   {
-    title: "Sinhala Lyrics",
-    description: "A web application for Sinhala song lyrics with advanced search capabilities and a modern user interface.",
-    image: "/projects/sinhala-lyrics.jpg",
-    tags: ["React", "Node.js", "MongoDB", "Express"],
-    liveUrl: "https://sinhalalyrics.vercel.app"
+    title: "Elevate360",
+    description: "A results-driven marketing agency website focused on enhancing brands through innovative strategies and customized solutions. Features social media campaigns, website development, and digital marketing services.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    liveUrl: "https://www.elevate360.agency"
   },
   {
-    title: "Sinhala Fonts",
-    description: "A comprehensive collection of Sinhala fonts with preview and download capabilities.",
-    image: "/projects/sinhala-fonts.jpg",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
-    liveUrl: "https://sinhalafonts.vercel.app"
+    title: "Aspire Volonte",
+    description: "A comprehensive insurance agency website offering various insurance solutions with detailed service information, quote calculators, and appointment scheduling.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    liveUrl: "https://www.aspirevolonte.com"
   },
   {
-    title: "Sinhala Unicode Converter",
-    description: "A tool to convert legacy Sinhala text to Unicode with real-time preview and batch conversion support.",
-    image: "/projects/sinhala-unicode.jpg",
-    tags: ["React", "TypeScript", "Material-UI"],
-    liveUrl: "https://sinhalaunicode.vercel.app"
+    title: "Real Estate Website",
+    description: "A modern real estate platform featuring property listings, advanced search functionality, and interactive property viewing. Built with a focus on user experience and responsive design.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    liveUrl: "https://real-estate-website-devpahanlankages-projects.vercel.app"
+  },
+  {
+    title: "Industri Nightclub",
+    description: "A responsive, modern website developed for Colombo's premier nightclub. Built with HTML, CSS, and JavaScript, featuring elegant design with event listings, VIP table bookings, and venue hire services. Includes dynamic event calendars and an immersive gallery showcase.",
+    tags: ["React", "JavaScript", "CSS", "Responsive Design"],
+    liveUrl: "https://devpahanlankage.github.io/Industri-Website"
+  },
+  {
+    title: "Via Roma",
+    description: "A luxury bathware supplier website featuring premium products, showroom locations, and an elegant product showcase system. Includes interactive product galleries and location services.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    liveUrl: "https://via-roma-client.vercel.app"
   }
 ]
 
 const skills = [
   {
     category: "Frontend Development",
-    items: ["HTML", "CSS", "JavaScript", "React", "Tailwind"]
+    items: [
+      { name: "HTML", icon: FaHtml5 },
+      { name: "CSS", icon: FaCss3Alt },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "React", icon: FaReact },
+      { name: "Tailwind", icon: SiTailwindcss }
+    ]
   },
   {
     category: "Backend Development",
-    items: ["Python", "Node.js", "PHP", "MySQL", "TypeScript"]
+    items: [
+      { name: "Python", icon: FaPython },
+      { name: "Node.js", icon: FaNodeJs },
+      { name: "PHP", icon: FaPhp },
+      { name: "MySQL", icon: SiMysql },
+      { name: "TypeScript", icon: SiTypescript }
+    ]
   },
   {
     category: "Tools & Technologies",
-    items: ["Git", "GitHub", "VS Code"]
+    items: [
+      { name: "Git", icon: FaGitAlt },
+      { name: "GitHub", icon: FaGithub },
+      { name: "VS Code", icon: VscCode },
+      { name: "ChatGPT", icon: SiChatbot },
+      { name: "Cursor", icon: VscTerminalCmd },
+      { name: "GitHub Copilot", icon: VscCopilot }
+    ]
   }
 ]
 
@@ -148,7 +176,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                I collaborate with startups to bring their visions to life, building dynamic and engaging digital products through full-stack development, blending creativity on the front end with robust functionality on the back end.
+                Currently serving as the web developer at Elevate360, a results-driven marketing agency, I collaborate with startups to bring their visions to life, building dynamic and engaging digital products through full-stack development, blending creativity on the front end with robust functionality on the back end.
               </motion.p>
               
               <motion.div 
@@ -301,9 +329,19 @@ export default function Home() {
                 transition={{ duration: 0.3, delay: 0.1 }}
                 className="block"
               >
-                I'm a dedicated full-stack developer with a passion for creating seamless digital experiences. Coding is more than just a job for me—it's a craft I'm constantly refining. With expertise in HTML/CSS, C#, Python, Git, MySQL, Javascript, I love tackling a wide variety of projects, whether it's breathing life into a creative design, building software solutions, or diving into the intricacies of database management.
+                I'm a dedicated full-stack developer with a passion for creating seamless digital experiences. Currently, I serve as the web developer at Elevate360, a results-driven marketing agency, where I lead the development of innovative web solutions and digital products. With expertise in HTML/CSS, C#, Python, Git, MySQL, Javascript, I love tackling a wide variety of projects, whether it's breathing life into a creative design, building software solutions, or diving into the intricacies of database management.
               </motion.span>
-              
+
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-200px" }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                className="block"
+              >
+                At Elevate360, I collaborate closely with the creative and marketing teams to develop and maintain client websites, implement digital marketing solutions, and ensure seamless user experiences across all platforms. My role involves translating design concepts into fully functional websites, optimizing performance, and implementing modern web technologies to drive business growth.
+              </motion.span>
+
               <motion.span 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -333,46 +371,46 @@ export default function Home() {
               >
                 Outside of coding, I keep myself energized by hitting the gym, vibing to tech house and progressive music, and enjoying a night out with friends. This balance of technical focus and personal interests fuels my creativity and drives me to continuously improve and innovate in the ever-evolving world of software development.
               </motion.span>
-            </motion.div>
 
-            {/* Development Approach Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-200px" }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              whileHover={{ scale: 1.02 }}
-              className="bg-white/40 dark:bg-rich-black/40 rounded-2xl p-6
-                       border border-transparent hover:border-yinmn-blue/20 transition-all duration-300"
-            >
-              <h3 className="text-2xl font-medium tracking-tight mb-4 text-rich-black dark:text-platinum">
-                Development Approach
-              </h3>
-              <ul className="space-y-3">
-                {[
-                  "AI-Enhanced Development: Leveraging cutting-edge AI tools for code optimization and intelligent solutions",
-                  "Rapid Prototyping: Quick iteration and development cycles without compromising quality",
-                  "Strategic Problem-Solving: Methodical approach to breaking down and solving complex challenges",
-                  "Collaborative Mindset: Strong team player with excellent communication skills"
-                ].map((item, index) => (
-                  <motion.li 
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-200px" }}
-                    transition={{ duration: 0.3, delay: 0.8 + index * 0.1 }}
-                    className="flex items-start gap-3 group"
-                  >
-                    <motion.span 
-                      className="w-2 h-2 mt-2 bg-yinmn-blue rounded-full flex-shrink-0 group-hover:scale-125"
-                      transition={{ duration: 0.2 }}
-                    />
-                    <span className="group-hover:text-yinmn-blue dark:group-hover:text-silver-lake transition-colors">
-                      {item}
-                    </span>
-                  </motion.li>
-                ))}
-              </ul>
+              {/* Development Approach Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-200px" }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                whileHover={{ scale: 1.02 }}
+                className="bg-white/40 dark:bg-rich-black/40 rounded-2xl p-6
+                         border border-transparent hover:border-yinmn-blue/20 transition-all duration-300"
+              >
+                <h3 className="text-2xl font-medium tracking-tight mb-4 text-rich-black dark:text-platinum">
+                  Development Approach
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    "AI-Enhanced Development: Leveraging cutting-edge AI tools for code optimization and intelligent solutions",
+                    "Rapid Prototyping: Quick iteration and development cycles without compromising quality",
+                    "Strategic Problem-Solving: Methodical approach to breaking down and solving complex challenges",
+                    "Collaborative Mindset: Strong team player with excellent communication skills"
+                  ].map((item, index) => (
+                    <motion.li 
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-200px" }}
+                      transition={{ duration: 0.3, delay: 0.8 + index * 0.1 }}
+                      className="flex items-start gap-3 group"
+                    >
+                      <motion.span 
+                        className="w-2 h-2 mt-2 bg-yinmn-blue rounded-full flex-shrink-0 group-hover:scale-125"
+                        transition={{ duration: 0.2 }}
+                      />
+                      <span className="group-hover:text-yinmn-blue dark:group-hover:text-silver-lake transition-colors">
+                        {item}
+                      </span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
             </motion.div>
           </div>
         </motion.div>
@@ -421,7 +459,7 @@ export default function Home() {
                 <div className="flex flex-wrap gap-3">
                   {skillGroup.items.map((skill, skillIndex) => (
                     <motion.div
-                      key={skill}
+                      key={skill.name}
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true, margin: "-200px" }}
@@ -445,8 +483,9 @@ export default function Home() {
                                      text-oxford-blue dark:text-silver-lake text-base font-medium
                                      border border-silver-lake/10 group-hover:border-yinmn-blue/30 
                                      group-hover:text-yinmn-blue dark:group-hover:text-silver-lake
-                                     transition-all duration-300 z-10">
-                        {skill}
+                                     transition-all duration-300 z-10 flex items-center gap-2">
+                        <skill.icon className="w-4 h-4" />
+                        {skill.name}
                       </span>
                     </motion.div>
                   ))}
@@ -778,12 +817,21 @@ export default function Home() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-4xl font-medium tracking-tight mb-8 text-rich-black dark:text-platinum">
-            Get in Touch
-          </h2>
           
-          <div className="bg-white/40 dark:bg-rich-black/40 rounded-2xl p-8">
-            <ContactForm />
+          
+          <div className="space-y-8">
+          
+
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-white/40 dark:bg-rich-black/40 rounded-2xl p-8"
+            >
+              <ContactForm />
+            </motion.div>
           </div>
         </motion.div>
       </section>
