@@ -129,7 +129,8 @@ export default function Home() {
               >
                 Hi, I'm{' '}
                 <motion.span 
-                  className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-500 via-pink-500 via-purple-500 via-blue-500 to-red-500 animate-name-gradient"
+                  className="relative inline-block font-['Geist_Sans'] gradient-text"
+                  style={{ fontWeight: 120 }}
                   whileHover={{
                     scale: 1.05,
                     transition: { duration: 0.2 }
