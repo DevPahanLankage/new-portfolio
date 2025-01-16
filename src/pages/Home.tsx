@@ -241,7 +241,6 @@ export default function Home() {
                 transition: { duration: 0.3 }
               }}
               transition={{
-                duration: 0.3,
                 delay: index * 0.05,
                 ...floatingAnimation.transition,
               }}
