@@ -13,10 +13,6 @@ export default {
         'silver-lake': '#94A3B8',
         'platinum': '#E5E5E5',
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))',
-      },
       animation: {
         'gradient-x': 'gradient-x 15s ease infinite',
         'gradient-xy': 'gradient-xy 15s ease infinite',
