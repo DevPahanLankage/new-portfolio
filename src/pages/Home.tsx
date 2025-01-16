@@ -131,10 +131,6 @@ export default function Home() {
                 <motion.span 
                   className="relative inline-block font-['Geist_Sans'] gradient-text"
                   style={{ fontWeight: 120 }}
-                  whileHover={{
-                    scale: 1.05,
-                    transition: { duration: 0.2 }
-                  }}
                 >
                   Pahan Lankage
                   <motion.span
