@@ -94,37 +94,7 @@ export default function Home() {
         {/* Background Elements */}
         <div className="absolute inset-0 -z-10">
           {/* Animated Gradient Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-yinmn-blue/20 via-purple-500/10 to-pink-500/20 dark:from-yinmn-blue/30 dark:via-purple-500/20 dark:to-pink-500/30 animate-gradient-xy" />
-          
-          {/* Animated Shapes */}
-          <div className="absolute inset-0">
-            <motion.div
-              className="absolute top-20 left-[20%] w-64 h-64 bg-gradient-to-br from-blue-500/30 to-purple-500/30 rounded-full blur-3xl"
-              animate={{
-                scale: [1, 1.2, 1],
-                x: [0, 50, 0],
-                y: [0, 30, 0],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-            <motion.div
-              className="absolute bottom-20 right-[20%] w-64 h-64 bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-full blur-3xl"
-              animate={{
-                scale: [1.2, 1, 1.2],
-                x: [0, -50, 0],
-                y: [0, -30, 0],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-yinmn-blue/10 via-purple-500/5 to-pink-500/10 dark:from-yinmn-blue/20 dark:via-purple-500/10 dark:to-pink-500/20 animate-gradient-xy" />
           
           {/* Grid Pattern with Animation */}
           <div className="absolute inset-0">
@@ -205,8 +175,6 @@ export default function Home() {
                 </AnimatedButton>
               </motion.div>
             </motion.div>
-
-            {/* Hero Image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9, x: 50 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -222,33 +190,7 @@ export default function Home() {
                   transition={{ duration: 0.3 }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              </div>
-              {/* Decorative Elements */}
-              <motion.div
-                className="absolute -inset-4 bg-gradient-to-r from-yinmn-blue/20 via-purple-500/20 to-pink-500/20 rounded-3xl -z-10 blur-xl"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.5, 0.8, 0.5],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-              <motion.div
-                className="absolute -top-2 -right-2 w-24 h-24 bg-gradient-to-br from-yinmn-blue/30 to-purple-500/30 rounded-full blur-xl"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1
-                }}
-              />
+              </div>              
             </motion.div>
           </div>
         </div>
