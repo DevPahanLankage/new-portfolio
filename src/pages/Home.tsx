@@ -12,31 +12,36 @@ const projects = [
     title: "Elevate360",
     description: "A results-driven marketing agency website focused on enhancing brands through innovative strategies and customized solutions. Features social media campaigns, website development, and digital marketing services.",
     tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    liveUrl: "https://www.elevate360.agency"
+    liveUrl: "https://www.elevate360.agency",
+    image: "/projects/project3.png"
   },
   {
     title: "Aspire Volonte",
     description: "A comprehensive insurance agency website offering various insurance solutions with detailed service information, quote calculators, and appointment scheduling.",
     tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    liveUrl: "https://www.aspirevolonte.com"
+    liveUrl: "https://www.aspirevolonte.com",
+    image: "/projects/project5.png"
   },
   {
     title: "Real Estate Website",
     description: "A modern real estate platform featuring property listings, advanced search functionality, and interactive property viewing. Built with a focus on user experience and responsive design.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    liveUrl: "https://real-estate-website-devpahanlankages-projects.vercel.app"
+    liveUrl: "https://real-estate-website-devpahanlankages-projects.vercel.app",
+    image: "/projects/project7.png"
   },
   {
     title: "Industri Nightclub",
     description: "A responsive, modern website developed for Colombo's premier nightclub. Built with HTML, CSS, and JavaScript, featuring elegant design with event listings, VIP table bookings, and venue hire services. Includes dynamic event calendars and an immersive gallery showcase.",
     tags: ["React", "JavaScript", "CSS", "Responsive Design"],
-    liveUrl: "https://devpahanlankage.github.io/Industri-Website"
+    liveUrl: "https://devpahanlankage.github.io/Industri-Website",
+    image: "/projects/project2.png"
   },
   {
     title: "Via Roma",
     description: "A luxury bathware supplier website featuring premium products, showroom locations, and an elegant product showcase system. Includes interactive product galleries and location services.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    liveUrl: "https://via-roma-client.vercel.app"
+    liveUrl: "https://via-roma-client.vercel.app",
+    image: "/projects/project4.png"
   }
 ]
 
