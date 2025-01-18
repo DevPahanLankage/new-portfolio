@@ -183,7 +183,7 @@ export default function Home() {
             >
               <div className="relative w-[400px] h-[600px] rounded-2xl overflow-hidden">
                 <motion.img
-                  src="/src/assets/picture1.jpg"
+                  src="/public/picture1.jpg"
                   alt="Pahan Lankage"
                   className="w-full h-full object-cover object-[80%_center]"
                   whileHover={{ scale: 1.05 }}
