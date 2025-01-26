@@ -66,6 +66,28 @@
     font-weight: 120;
     line-height: 1.07;
   }
+
+  .animated-gradient-indicator {
+    background: linear-gradient(
+      90deg,
+      #eec32d 0%,
+      #ec4b4b 25%,
+      #709ab9 50%,
+      #4dffbf 75%,
+      #eec32d 100%
+    );
+    background-size: 200% 100%;
+    animation: gradient-slide 3s linear infinite;
+  }
+
+  @keyframes gradient-slide {
+    0% {
+      background-position: 100% 0%;
+    }
+    100% {
+      background-position: -100% 0%;
+    }
+  }
 }
 
 @layer utilities {

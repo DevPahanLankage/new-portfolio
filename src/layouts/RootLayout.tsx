@@ -5,6 +5,7 @@ import ScrollProgress from '../components/ScrollProgress'
 import SocialLinks from '../components/SocialLinks'
 import BackToTop from '../components/BackToTop'
 import CustomCursor from '../components/CustomCursor'
+import { motion } from 'framer-motion'
 
 interface RootLayoutProps {
   children: ReactNode
@@ -13,9 +14,31 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   const [isDarkMode, setIsDarkMode] = useState(true)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('hero')
 
   useEffect(() => {
     document.documentElement.classList.add('dark')
+  }, [])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['hero', 'about', 'skills', 'education', 'certifications', 'projects', 'contact']
+      const scrollPosition = window.scrollY + window.innerHeight / 2
+
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const { offsetTop, offsetHeight } = element
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const toggleDarkMode = () => {
@@ -33,53 +56,94 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <div className={`min-h-screen bg-platinum dark:bg-rich-black ${isDarkMode ? 'dark' : ''}`}>
       <CustomCursor />
-      <ScrollProgress />
-      <header className="fixed top-0.5 w-full bg-white/80 dark:bg-rich-black/80 backdrop-blur-sm z-50">
+      <header className="fixed top-0 w-full bg-white/80 dark:bg-rich-black/80 backdrop-blur-sm z-50">
         <nav className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <button 
               onClick={() => scrollToSection('hero')}
-              className="text-2xl font-medium tracking-tight text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors"
+              className={`text-2xl font-medium tracking-tight text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors ${activeSection === 'hero' ? 'underline' : ''}`}
             >
               Pahan Lankage
             </button>
             <div className="flex items-center gap-4">
-              <div className="hidden md:flex items-center gap-6">
+              <div className="hidden md:flex items-center gap-6 relative">
                 <button 
                   onClick={() => scrollToSection('about')}
-                  className="text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors"
+                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
                 >
                   About
+                  {activeSection === 'about' && (
+                    <motion.div
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 animated-gradient-indicator"
+                      layoutId="activeSection"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
                 </button>
                 <button 
                   onClick={() => scrollToSection('skills')}
-                  className="text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors"
+                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
                 >
                   Skills
+                  {activeSection === 'skills' && (
+                    <motion.div
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 animated-gradient-indicator"
+                      layoutId="activeSection"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
                 </button>
                 <button 
                   onClick={() => scrollToSection('education')}
-                  className="text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors"
+                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
                 >
                   Education
+                  {activeSection === 'education' && (
+                    <motion.div
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 animated-gradient-indicator"
+                      layoutId="activeSection"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
                 </button>
                 <button 
                   onClick={() => scrollToSection('certifications')}
-                  className="text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors"
+                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
                 >
                   Certifications
+                  {activeSection === 'certifications' && (
+                    <motion.div
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 animated-gradient-indicator"
+                      layoutId="activeSection"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
                 </button>
                 <button 
                   onClick={() => scrollToSection('projects')}
-                  className="text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors"
+                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
                 >
                   Projects
+                  {activeSection === 'projects' && (
+                    <motion.div
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 animated-gradient-indicator"
+                      layoutId="activeSection"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
                 </button>
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors"
+                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
                 >
                   Contact
+                  {activeSection === 'contact' && (
+                    <motion.div
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 animated-gradient-indicator"
+                      layoutId="activeSection"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
                 </button>
               </div>
               <button
@@ -104,7 +168,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </div>
         </nav>
       </header>
-
+      <div className="h-[72px]" />
+      <ScrollProgress />
       <main className="container mx-auto px-4">
         {children}
       </main>
