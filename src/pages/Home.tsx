@@ -162,7 +162,7 @@ export default function Home() {
             >
               <div className="relative w-[400px] h-[600px] rounded-2xl overflow-hidden">
                 <motion.img
-                  src="public\projects\picture1.jpg"
+                  src="https://raw.githubusercontent.com/DevPahanLankage/my-image-assets/refs/heads/main/picture1.jpg"
                   alt="Pahan Lankage"
                   className="w-full h-full object-cover object-[80%_center]"
                   whileHover={hoverScale}
