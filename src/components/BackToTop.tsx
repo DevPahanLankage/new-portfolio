@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUpIcon } from '@heroicons/react/24/outline'
-import { wobbleHover } from '../utils/animations'
 
 export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false)
@@ -43,7 +42,7 @@ export default function BackToTop() {
                 duration: 0.5
               }
             }}
-            className="absolute right-[calc(100%+20px)] text-2xl font-['Geist_Sans'] text-platinum whitespace-nowrap"
+            className="absolute right-[calc(100%+20px)] text-2xl font-['Geist_Sans'] text-oxford-blue dark:text-silver-lake whitespace-nowrap"
             style={{ fontWeight: 80 }}
           >
             Back to Top

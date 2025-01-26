@@ -180,7 +180,7 @@ export default function Home() {
           animate="visible"
           className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-8"
         >
-          {techStack.map(({ icon: Icon, name }, index) => (
+          {techStack.map(({ icon: Icon, name }) => (
             <motion.div
               key={name}
               variants={staggerItem}
@@ -305,7 +305,7 @@ export default function Home() {
             variants={staggerContainer}
             className="space-y-6"
           >
-            {skills.map((skillGroup, groupIndex) => (
+            {skills.map((skillGroup) => (
               <motion.div
                 key={skillGroup.category}
                 variants={staggerItem}
@@ -320,7 +320,7 @@ export default function Home() {
                   {skillGroup.category}
                 </motion.h3>
                 <div className="flex flex-wrap gap-3">
-                  {skillGroup.items.map((skill, skillIndex) => (
+                  {skillGroup.items.map((skill) => (
                     <motion.div
                       key={skill.name}
                       variants={staggerItem}
