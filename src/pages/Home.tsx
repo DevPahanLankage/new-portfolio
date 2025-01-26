@@ -97,7 +97,7 @@ export default function Home() {
   ]
 
   return (
-    <div className="space-y-32 py-24">
+    <div className="space-y-32 py-1">
       {/* Hero Section */}
       <section id="hero" className="relative min-h-[calc(100vh-8rem)] flex flex-col justify-center overflow-hidden">
         {/* Content */}

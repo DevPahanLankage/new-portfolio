@@ -5,10 +5,27 @@ import ScrollProgress from '../components/ScrollProgress'
 import SocialLinks from '../components/SocialLinks'
 import BackToTop from '../components/BackToTop'
 import CustomCursor from '../components/CustomCursor'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 interface RootLayoutProps {
   children: ReactNode
+}
+
+function NavIndicator({ isActive }: { isActive: boolean }) {
+  return (
+    <AnimatePresence>
+      {isActive && (
+        <motion.div
+          className="absolute -bottom-1 left-0 right-0 h-0.5 animated-gradient-indicator"
+          layoutId="activeSection"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+        />
+      )}
+    </AnimatePresence>
+  )
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
@@ -61,7 +78,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <div className="flex justify-between items-center">
             <button 
               onClick={() => scrollToSection('hero')}
-              className={`text-2xl font-medium tracking-tight text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors ${activeSection === 'hero' ? 'underline' : ''}`}
+              className={`text-2xl font-medium tracking-tight text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors`}
             >
               Pahan Lankage
             </button>
@@ -72,78 +89,42 @@ export default function RootLayout({ children }: RootLayoutProps) {
                   className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
                 >
                   About
-                  {activeSection === 'about' && (
-                    <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 animated-gradient-indicator"
-                      layoutId="activeSection"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
+                  <NavIndicator isActive={activeSection === 'about'} />
                 </button>
                 <button 
                   onClick={() => scrollToSection('skills')}
                   className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
                 >
                   Skills
-                  {activeSection === 'skills' && (
-                    <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 animated-gradient-indicator"
-                      layoutId="activeSection"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
+                  <NavIndicator isActive={activeSection === 'skills'} />
                 </button>
                 <button 
                   onClick={() => scrollToSection('education')}
                   className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
                 >
                   Education
-                  {activeSection === 'education' && (
-                    <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 animated-gradient-indicator"
-                      layoutId="activeSection"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
+                  <NavIndicator isActive={activeSection === 'education'} />
                 </button>
                 <button 
                   onClick={() => scrollToSection('certifications')}
                   className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
                 >
                   Certifications
-                  {activeSection === 'certifications' && (
-                    <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 animated-gradient-indicator"
-                      layoutId="activeSection"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
+                  <NavIndicator isActive={activeSection === 'certifications'} />
                 </button>
                 <button 
                   onClick={() => scrollToSection('projects')}
                   className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
                 >
                   Projects
-                  {activeSection === 'projects' && (
-                    <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 animated-gradient-indicator"
-                      layoutId="activeSection"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
+                  <NavIndicator isActive={activeSection === 'projects'} />
                 </button>
                 <button 
                   onClick={() => scrollToSection('contact')}
                   className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
                 >
                   Contact
-                  {activeSection === 'contact' && (
-                    <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 animated-gradient-indicator"
-                      layoutId="activeSection"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
+                  <NavIndicator isActive={activeSection === 'contact'} />
                 </button>
               </div>
               <button
