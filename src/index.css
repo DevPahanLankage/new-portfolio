@@ -10,7 +10,11 @@
 @property --angle {
   syntax: '<angle>';
   initial-value: 180deg;
-  inherits: false;
+  inherits: true;
+}
+
+@keyframes rotate {
+  to { --angle: 540deg; }
 }
 
 @layer base {
@@ -31,10 +35,9 @@
     @apply px-4 mx-auto max-w-7xl sm:px-6 lg:px-8;
   }
 
-  .gradient-text {
-    --angle: 180deg;
-    background-image: conic-gradient(
-      from var(--angle) at 50% 70%,
+  .animated-gradient-text {
+    --primary-bg: conic-gradient(
+      from var(--angle, 180deg) at 50% 70%,
       hsla(0,0%,98%,1) 0deg,
       #eec32d 72deg,
       #ec4b4b 144deg,
@@ -42,16 +45,26 @@
       #4dffbf 288deg,
       hsla(0,0%,98%,1) 1turn
     );
+    --highlight: 2;
+    --spread: 1;
+    --primary: #ffffff;
+    --secondary: #606060;
+    
+    background:
+      var(--primary-bg),
+      linear-gradient(var(--secondary), var(--secondary)),
+      linear-gradient(var(--secondary) 0 calc((var(--highlight) + var(--spread)) * 1lh), transparent);
+    background-repeat: no-repeat;
+    background-size: 
+      100% calc(var(--highlight) * 1lh),
+      100% calc((var(--highlight) + var(--spread)) * 1lh),
+      100% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: rotate 6s linear infinite;
-  }
-
-  @keyframes rotate {
-    to {
-      --angle: 540deg;
-    }
+    animation: rotate 6s infinite linear;
+    font-weight: 120;
+    line-height: 1.07;
   }
 }
 

@@ -12,7 +12,8 @@ import {
   staggerContainer,
   staggerItem,
   standardViewport,
-  hoverScale 
+  hoverScale,
+  wobbleHover
 } from '../utils/animations'
 
 const projects = [
@@ -99,29 +100,6 @@ export default function Home() {
     <div className="space-y-32 py-24">
       {/* Hero Section */}
       <section id="hero" className="relative min-h-[calc(100vh-8rem)] flex flex-col justify-center overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 -z-10">
-          {/* Animated Gradient Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-yinmn-blue/10 via-purple-500/5 to-pink-500/10 dark:from-yinmn-blue/20 dark:via-purple-500/10 dark:to-pink-500/20 animate-gradient-xy" />
-          
-          {/* Grid Pattern with Animation */}
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.03] dark:opacity-[0.07]" />
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-b from-transparent via-yinmn-blue/5 to-transparent"
-              animate={{
-                opacity: [0, 0.5, 0],
-                y: [0, 100, 0],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            />
-          </div>
-        </div>
-
         {/* Content */}
         <div className="relative container mx-auto px-6">
           <div className="flex items-center justify-between">
@@ -138,8 +116,7 @@ export default function Home() {
               >
                 Hi, I'm{' '}
                 <motion.span 
-                  className="relative inline-block font-['Geist_Sans'] gradient-text"
-                  style={{ fontWeight: 120 }}
+                  className="relative inline-block font-['Geist_Sans'] animated-gradient-text"
                 >
                   Pahan Lankage
                   <motion.span
@@ -185,7 +162,7 @@ export default function Home() {
             >
               <div className="relative w-[400px] h-[600px] rounded-2xl overflow-hidden">
                 <motion.img
-                  src="/public/picture1.jpg"
+                  src="public\projects\picture1.jpg"
                   alt="Pahan Lankage"
                   className="w-full h-full object-cover object-[80%_center]"
                   whileHover={hoverScale}
@@ -207,7 +184,7 @@ export default function Home() {
             <motion.div
               key={name}
               variants={staggerItem}
-              whileHover={hoverScale}
+              whileHover={wobbleHover}
               className="group relative"
             >
               <Icon className="w-8 h-8 text-oxford-blue/50 dark:text-silver-lake/50 

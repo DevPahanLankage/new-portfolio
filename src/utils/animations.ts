@@ -75,7 +75,7 @@ export const staggerItem: Variants = {
 // Standard hover animation
 export const hoverScale = {
   scale: 1.05,
-  transition: { duration: 0.3 },
+  transition: { type: "spring", stiffness: 400, damping: 10 }
 }
 
 // Standard tap animation
@@ -167,4 +167,20 @@ export const pulseAnimation = {
     repeat: Infinity,
     ease: 'easeInOut',
   },
+}
+
+export const wobbleHover = {
+  scale: 1.1,
+  rotate: [0, -5, 5, -5, 0],
+  transition: {
+    rotate: {
+      repeat: 0,
+      duration: 0.5
+    },
+    scale: {
+      type: "spring",
+      stiffness: 400,
+      damping: 10
+    }
+  }
 } 
