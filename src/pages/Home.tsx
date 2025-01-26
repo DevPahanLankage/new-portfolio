@@ -5,7 +5,15 @@ import { VscCode, VscCopilot, VscTerminalCmd } from 'react-icons/vsc'
 import ProjectCard from '../components/ProjectCard'
 import ContactForm from '../components/ContactForm'
 import AnimatedButton from '../components/AnimatedButton'
-import { floatingAnimation } from '../utils/animations'
+import { 
+  scrollAnimation, 
+  scrollAnimationFromLeft, 
+  scrollAnimationFromRight,
+  staggerContainer,
+  staggerItem,
+  standardViewport,
+  hoverScale 
+} from '../utils/animations'
 
 const projects = [
   {
@@ -119,16 +127,14 @@ export default function Home() {
           <div className="flex items-center justify-between">
             {/* Text Content */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              variants={scrollAnimationFromLeft}
+              initial="hidden"
+              animate="visible"
               className="max-w-2xl"
             >
               <motion.h1 
+                variants={staggerItem}
                 className="text-7xl font-medium tracking-tight mb-8 text-rich-black dark:text-platinum"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
               >
                 Hi, I'm{' '}
                 <motion.span 
@@ -146,19 +152,15 @@ export default function Home() {
               </motion.h1>
               
               <motion.p 
+                variants={staggerItem}
                 className="text-xl font-normal leading-relaxed text-oxford-blue dark:text-silver-lake mb-12"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
               >
                 Currently serving as the web developer at Elevate360, a results-driven marketing agency, I collaborate with startups to bring their visions to life, building dynamic and engaging digital products through full-stack development, blending creativity on the front end with robust functionality on the back end.
               </motion.p>
               
               <motion.div 
+                variants={staggerItem}
                 className="flex gap-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.7 }}
               >
                 <AnimatedButton
                   onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
@@ -176,9 +178,9 @@ export default function Home() {
               </motion.div>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, x: 50 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              variants={scrollAnimationFromRight}
+              initial="hidden"
+              animate="visible"
               className="hidden lg:block"
             >
               <div className="relative w-[400px] h-[600px] rounded-2xl overflow-hidden">
@@ -186,8 +188,7 @@ export default function Home() {
                   src="/public/picture1.jpg"
                   alt="Pahan Lankage"
                   className="w-full h-full object-cover object-[80%_center]"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
+                  whileHover={hoverScale}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>              
@@ -197,25 +198,17 @@ export default function Home() {
 
         {/* Tech Stack Icons */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
           className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-8"
         >
           {techStack.map(({ icon: Icon, name }, index) => (
             <motion.div
               key={name}
+              variants={staggerItem}
+              whileHover={hoverScale}
               className="group relative"
-              animate={floatingAnimation}
-              whileHover={{ 
-                scale: 1.2,
-                rotate: [0, 10, -10, 0],
-                transition: { duration: 0.3 }
-              }}
-              transition={{
-                delay: index * 0.05,
-                ...floatingAnimation.transition,
-              }}
             >
               <Icon className="w-8 h-8 text-oxford-blue/50 dark:text-silver-lake/50 
                              group-hover:text-yinmn-blue dark:group-hover:text-silver-lake 
@@ -225,17 +218,9 @@ export default function Home() {
                            text-oxford-blue/50 dark:text-silver-lake/50
                            opacity-0 group-hover:opacity-100 transition-all duration-300
                            whitespace-nowrap"
-                initial={{ y: 10 }}
-                whileHover={{ y: 0 }}
               >
                 {name}
               </motion.span>
-              <motion.div
-                className="absolute -inset-4 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 
-                           rounded-full opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300"
-                initial={{ scale: 0 }}
-                whileHover={{ scale: 1 }}
-              />
             </motion.div>
           ))}
         </motion.div>
@@ -244,88 +229,51 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="scroll-mt-24">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-200px" }}
-          transition={{ duration: 0.4 }}
+          variants={scrollAnimation}
+          initial="hidden"
+          whileInView="visible"
+          viewport={standardViewport}
           className="max-w-4xl mx-auto"
         >
           <motion.h2 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-200px" }}
-            transition={{ duration: 0.3, delay: 0.1 }}
+            variants={scrollAnimationFromLeft}
             className="text-4xl font-medium tracking-tight mb-8 text-rich-black dark:text-platinum"
           >
             About Me
           </motion.h2>
           
           <div className="space-y-6 text-lg text-oxford-blue dark:text-silver-lake">
-            {/* About Text Paragraphs */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-200px" }}
-              transition={{ duration: 0.3, delay: 0.1 }}
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={standardViewport}
               className="leading-relaxed space-y-6"
             >
-              <motion.span 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-200px" }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-                className="block"
-              >
+              <motion.span variants={staggerItem} className="block">
                 I'm a dedicated full-stack developer with a passion for creating seamless digital experiences. Currently, I serve as the web developer at Elevate360, a results-driven marketing agency, where I lead the development of innovative web solutions and digital products. With expertise in HTML/CSS, C#, Python, Git, MySQL, Javascript, I love tackling a wide variety of projects, whether it's breathing life into a creative design, building software solutions, or diving into the intricacies of database management.
               </motion.span>
 
-              <motion.span 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-200px" }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-                className="block"
-              >
+              <motion.span variants={staggerItem} className="block">
                 At Elevate360, I collaborate closely with the creative and marketing teams to develop and maintain client websites, implement digital marketing solutions, and ensure seamless user experiences across all platforms. My role involves translating design concepts into fully functional websites, optimizing performance, and implementing modern web technologies to drive business growth.
               </motion.span>
 
-              <motion.span 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-200px" }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-                className="block"
-              >
+              <motion.span variants={staggerItem} className="block">
                 My development approach is enhanced by cutting-edge AI tools and technologies, allowing me to deliver solutions that are not just efficient, but revolutionary. I leverage AI for code optimization, automated testing, and intelligent debugging, ensuring faster development cycles without compromising on quality. This modern approach, combined with traditional development expertise, enables me to build robust, scalable applications with remarkable speed and precision.
               </motion.span>
 
-              <motion.span 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-200px" }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-                className="block"
-              >
+              <motion.span variants={staggerItem} className="block">
                 My problem-solving approach is thoughtful and strategic: I take time to fully understand the challenge at hand, break it down into manageable parts, and build solutions step by step. I'm a strong believer in collaboration, and I thrive in team environments where ideas flow freely. Patience and perseverance are my strengths—I won't stop working until I've hit my target for the day.
               </motion.span>
 
-              <motion.span 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-200px" }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-                className="block"
-              >
+              <motion.span variants={staggerItem} className="block">
                 Outside of coding, I keep myself energized by hitting the gym, vibing to tech house and progressive music, and enjoying a night out with friends. This balance of technical focus and personal interests fuels my creativity and drives me to continuously improve and innovate in the ever-evolving world of software development.
               </motion.span>
 
               {/* Development Approach Card */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-200px" }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-                whileHover={{ scale: 1.02 }}
+                variants={staggerItem}
+                whileHover={hoverScale}
                 className="bg-white/40 dark:bg-rich-black/40 rounded-2xl p-6
                          border border-transparent hover:border-yinmn-blue/20 transition-all duration-300"
               >
@@ -341,10 +289,7 @@ export default function Home() {
                   ].map((item, index) => (
                     <motion.li 
                       key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-200px" }}
-                      transition={{ duration: 0.3, delay: 0.8 + index * 0.1 }}
+                      variants={staggerItem}
                       className="flex items-start gap-3 group"
                     >
                       <motion.span 
@@ -366,39 +311,33 @@ export default function Home() {
       {/* Technical Skills Section */}
       <section id="skills" className="scroll-mt-24">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-200px" }}
-          transition={{ duration: 0.4 }}
+          variants={scrollAnimation}
+          initial="hidden"
+          whileInView="visible"
+          viewport={standardViewport}
           className="max-w-4xl mx-auto"
         >
           <motion.h2 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-200px" }}
-            transition={{ duration: 0.3, delay: 0.1 }}
+            variants={scrollAnimationFromLeft}
             className="text-4xl font-medium tracking-tight mb-8 text-rich-black dark:text-platinum"
           >
             Technical Skills
           </motion.h2>
           
-          <div className="space-y-6">
+          <motion.div
+            variants={staggerContainer}
+            className="space-y-6"
+          >
             {skills.map((skillGroup, groupIndex) => (
               <motion.div
                 key={skillGroup.category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-200px" }}
-                transition={{ duration: 0.3, delay: 0.2 + groupIndex * 0.1 }}
-                whileHover={{ scale: 1.02 }}
+                variants={staggerItem}
+                whileHover={hoverScale}
                 className="bg-white/40 dark:bg-rich-black/40 rounded-xl p-6
                          border border-transparent hover:border-yinmn-blue/20 transition-all duration-300"
               >
                 <motion.h3 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-200px" }}
-                  transition={{ duration: 0.3, delay: 0.3 + groupIndex * 0.1 }}
+                  variants={scrollAnimationFromLeft}
                   className="text-2xl font-medium text-yinmn-blue dark:text-silver-lake mb-4"
                 >
                   {skillGroup.category}
@@ -407,21 +346,8 @@ export default function Home() {
                   {skillGroup.items.map((skill, skillIndex) => (
                     <motion.div
                       key={skill.name}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true, margin: "-200px" }}
-                      transition={{ 
-                        duration: 0.3, 
-                        delay: 0.4 + groupIndex * 0.1 + skillIndex * 0.05,
-                        type: "spring",
-                        stiffness: 200,
-                        damping: 15
-                      }}
-                      whileHover={{ 
-                        scale: 1.1,
-                        rotate: [-1, 1, -1, 0],
-                        transition: { duration: 0.3 }
-                      }}
+                      variants={staggerItem}
+                      whileHover={hoverScale}
                       className="relative group"
                     >
                       <span className="absolute inset-0 bg-gradient-to-r from-yinmn-blue/20 to-yinmn-blue/0 
@@ -439,24 +365,21 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       </section>
 
       {/* Education Timeline Section */}
       <section id="education" className="scroll-mt-24">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-200px" }}
-          transition={{ duration: 0.4 }}
+          variants={scrollAnimation}
+          initial="hidden"
+          whileInView="visible"
+          viewport={standardViewport}
           className="max-w-4xl mx-auto"
         >
           <motion.h2 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-200px" }}
-            transition={{ duration: 0.3, delay: 0.1 }}
+            variants={scrollAnimationFromLeft}
             className="text-4xl font-medium tracking-tight mb-8 text-rich-black dark:text-platinum"
           >
             Education
@@ -464,10 +387,7 @@ export default function Home() {
 
           <div className="space-y-6">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-200px" }}
-              transition={{ duration: 0.3, delay: 0.2 }}
+              variants={staggerItem}
               className="relative pl-8 border-l-2 border-yinmn-blue dark:border-silver-lake"
             >
               <motion.div 
@@ -478,9 +398,10 @@ export default function Home() {
                 }}
               />
               <motion.div 
+                variants={staggerItem}
                 className="bg-white/40 dark:bg-rich-black/40 rounded-xl p-6
                           border border-transparent hover:border-yinmn-blue/20 transition-all duration-300"
-                whileHover={{ scale: 1.02, x: 10 }}
+                whileHover={hoverScale}
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                   <motion.h3 
@@ -521,10 +442,7 @@ export default function Home() {
 
             {/* SLIIT City University */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-200px" }}
-              transition={{ duration: 0.3, delay: 0.4 }}
+              variants={staggerItem}
               className="relative pl-8 border-l-2 border-yinmn-blue dark:border-silver-lake"
             >
               <motion.div 
@@ -535,9 +453,10 @@ export default function Home() {
                 }}
               />
               <motion.div 
+                variants={staggerItem}
                 className="bg-white/40 dark:bg-rich-black/40 rounded-xl p-6
                           border border-transparent hover:border-yinmn-blue/20 transition-all duration-300"
-                whileHover={{ scale: 1.02, x: 10 }}
+                whileHover={hoverScale}
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                   <motion.h3 
@@ -578,10 +497,7 @@ export default function Home() {
 
             {/* Lyceum International School */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-200px" }}
-              transition={{ duration: 0.3, delay: 0.6 }}
+              variants={staggerItem}
               className="relative pl-8 border-l-2 border-yinmn-blue dark:border-silver-lake"
             >
               <motion.div 
@@ -592,9 +508,10 @@ export default function Home() {
                 }}
               />
               <motion.div 
+                variants={staggerItem}
                 className="bg-white/40 dark:bg-rich-black/40 rounded-xl p-6
                           border border-transparent hover:border-yinmn-blue/20 transition-all duration-300"
-                whileHover={{ scale: 1.02, x: 10 }}
+                whileHover={hoverScale}
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                   <motion.h3 
@@ -639,10 +556,10 @@ export default function Home() {
       {/* Certifications Section */}
       <section id="certifications" className="scroll-mt-24">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          variants={scrollAnimation}
+          initial="hidden"
+          whileInView="visible"
+          viewport={standardViewport}
           className="max-w-4xl mx-auto"
         >
           <h2 className="text-4xl font-medium tracking-tight mb-8 text-rich-black dark:text-platinum">
@@ -652,10 +569,7 @@ export default function Home() {
           <div className="space-y-6">
             {/* IBM Data Science Track */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              variants={staggerItem}
               className="bg-white/40 dark:bg-rich-black/40 rounded-xl p-6"
             >
               <h3 className="text-2xl font-medium text-yinmn-blue dark:text-silver-lake mb-4">
@@ -691,10 +605,7 @@ export default function Home() {
 
             {/* IBM Additional Certifications */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
+              variants={staggerItem}
               className="bg-white/40 dark:bg-rich-black/40 rounded-xl p-6"
             >
               <h3 className="text-2xl font-medium text-yinmn-blue dark:text-silver-lake mb-4">
@@ -714,10 +625,7 @@ export default function Home() {
 
             {/* Other Certifications */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
+              variants={staggerItem}
               className="bg-white/40 dark:bg-rich-black/40 rounded-xl p-6"
             >
               <h3 className="text-2xl font-medium text-yinmn-blue dark:text-silver-lake mb-4">
@@ -737,49 +645,47 @@ export default function Home() {
       {/* Projects Section */}
       <section id="projects" className="scroll-mt-24">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          variants={scrollAnimation}
+          initial="hidden"
+          whileInView="visible"
+          viewport={standardViewport}
           className="max-w-6xl mx-auto"
         >
-          <h2 className="text-4xl font-medium tracking-tight mb-8 text-rich-black dark:text-platinum">
+          <motion.h2 
+            variants={scrollAnimationFromLeft}
+            className="text-4xl font-medium tracking-tight mb-8 text-rich-black dark:text-platinum"
+          >
             Featured Projects
-          </h2>
+          </motion.h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {projects.map((project, index) => (
-              <ProjectCard key={index} {...project} />
+              <motion.div key={index} variants={staggerItem}>
+                <ProjectCard {...project} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       </section>
 
       {/* Contact Section */}
       <section id="contact" className="scroll-mt-24">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          variants={scrollAnimation}
+          initial="hidden"
+          whileInView="visible"
+          viewport={standardViewport}
           className="max-w-4xl mx-auto"
         >
-          
-          
-          <div className="space-y-8">
-          
-
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white/40 dark:bg-rich-black/40 rounded-2xl p-8"
-            >
-              <ContactForm />
-            </motion.div>
-          </div>
+          <motion.div
+            variants={staggerContainer}
+            className="space-y-8"
+          >
+            <ContactForm />
+          </motion.div>
         </motion.div>
       </section>
     </div>

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { scrollAnimation, standardViewport, hoverScale } from '../utils/animations'
 
 interface ProjectCardProps {
   title: string
@@ -13,11 +14,12 @@ export default function ProjectCard({ title, description, tags, liveUrl, image }
     <motion.div
       className="relative bg-white/40 dark:bg-rich-black/40 rounded-xl shadow-lg overflow-hidden
                  border border-transparent hover:border-yinmn-blue/20 transition-all duration-300
-                 group hover:scale-[1.02]"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.4 }}
+                 group"
+      variants={scrollAnimation}
+      initial="hidden"
+      whileInView="visible"
+      viewport={standardViewport}
+      whileHover={hoverScale}
     >
       <div className="relative h-[250px] overflow-hidden">
         <motion.img
@@ -40,9 +42,6 @@ export default function ProjectCard({ title, description, tags, liveUrl, image }
           {tags.map((tag, index) => (
             <motion.span
               key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1 }}
               className="px-3 py-1 text-sm font-medium text-yinmn-blue dark:text-silver-lake 
                        bg-yinmn-blue/10 dark:bg-silver-lake/10 rounded-full
                        hover:bg-yinmn-blue/20 dark:hover:bg-silver-lake/20 transition-colors"
@@ -58,7 +57,6 @@ export default function ProjectCard({ title, description, tags, liveUrl, image }
           className="inline-flex items-center text-yinmn-blue dark:text-silver-lake 
                    hover:text-blue-700 dark:hover:text-silver transition-colors"
           whileHover={{ x: 5 }}
-          whileTap={{ scale: 0.95 }}
         >
           View Project
           <svg
