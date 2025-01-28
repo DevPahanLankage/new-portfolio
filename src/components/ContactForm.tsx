@@ -159,10 +159,7 @@ export default function ContactForm() {
           className={`
             relative min-w-[200px] h-[68px] px-5 py-5 rounded-[14px] font-medium text-lg
             text-rich-black dark:text-platinum
-            cursor-pointer border-none
-            shadow-[0_0.5px_0.5px_1px_rgba(255,255,255,0.2),0_10px_20px_rgba(0,0,0,0.2),0_4px_5px_0px_rgba(0,0,0,0.05)]
-            hover:shadow-[0_0_1px_2px_rgba(255,255,255,0.3),0_15px_30px_rgba(0,0,0,0.3),0_10px_3px_-3px_rgba(0,0,0,0.04)]
-            active:shadow-[0_0_1px_2px_rgba(255,255,255,0.3),0_10px_3px_-3px_rgba(0,0,0,0.2)]
+            cursor-pointer border-none outline-none
             hover:scale-[1.02] active:scale-100
             transition-all duration-300
             disabled:opacity-50 disabled:cursor-not-allowed
@@ -177,7 +174,7 @@ export default function ContactForm() {
             <div className="absolute inset-[-100%] bg-[conic-gradient(from_180deg,transparent_60%,white_80%,transparent_100%)] animate-spin" />
           </div>
 
-          <div className="absolute inset-0 rounded-[14px] border-2 border-transparent bg-gradient-to-b from-[#f7f8f7] to-[#e7e7e7] dark:from-oxford-blue dark:to-rich-black z-0" />
+          <div className="absolute inset-0 rounded-[14px] bg-gradient-to-b from-[#f7f8f7] to-[#e7e7e7] dark:from-oxford-blue dark:to-rich-black z-0" />
           
           <div className="absolute inset-[7px_6px_6px_6px] bg-gradient-to-t from-[#f7f8f7] to-[#e7e7e7] dark:from-oxford-blue dark:to-rich-black rounded-[30px] filter blur-[0.5px] z-[2]" />
 
