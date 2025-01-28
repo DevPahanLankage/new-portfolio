@@ -44,53 +44,88 @@ export default function MobileMenu({ isOpen, onClose, onNavigate }: MobileMenuPr
             
             <nav className="space-y-4">
               <motion.button
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ x: 10, backgroundColor: 'rgba(var(--yinmn-blue), 0.1)' }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => handleClick('hero')}
-                className="w-full text-left px-4 py-2 text-lg font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors"
+                className="w-full text-left px-4 py-2 text-lg font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-all duration-300 rounded-xl relative group"
               >
-                Home
+                <span className="relative z-10">Home</span>
+                <motion.div
+                  className="absolute inset-0 -z-10 bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent opacity-0 group-hover:opacity-100 blur-lg transition-all duration-300 rounded-xl"
+                  layoutId="mobileMenuHover"
+                />
               </motion.button>
               <motion.button
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ x: 10, backgroundColor: 'rgba(var(--yinmn-blue), 0.1)' }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => handleClick('about')}
-                className="w-full text-left px-4 py-2 text-lg font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors"
+                className="w-full text-left px-4 py-2 text-lg font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-all duration-300 rounded-xl relative group"
               >
-                About
+                <span className="relative z-10">About</span>
+                <motion.div
+                  className="absolute inset-0 -z-10 bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent opacity-0 group-hover:opacity-100 blur-lg transition-all duration-300 rounded-xl"
+                  layoutId="mobileMenuHover"
+                />
               </motion.button>
               <motion.button
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ x: 10, backgroundColor: 'rgba(var(--yinmn-blue), 0.1)' }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => handleClick('skills')}
-                className="w-full text-left px-4 py-2 text-lg font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors"
+                className="w-full text-left px-4 py-2 text-lg font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-all duration-300 rounded-xl relative group"
               >
-                Skills
+                <span className="relative z-10">Skills</span>
+                <motion.div
+                  className="absolute inset-0 -z-10 bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent opacity-0 group-hover:opacity-100 blur-lg transition-all duration-300 rounded-xl"
+                  layoutId="mobileMenuHover"
+                />
               </motion.button>
               <motion.button
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ x: 10, backgroundColor: 'rgba(var(--yinmn-blue), 0.1)' }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => handleClick('education')}
-                className="w-full text-left px-4 py-2 text-lg font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors"
+                className="w-full text-left px-4 py-2 text-lg font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-all duration-300 rounded-xl relative group"
               >
-                Education
+                <span className="relative z-10">Education</span>
+                <motion.div
+                  className="absolute inset-0 -z-10 bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent opacity-0 group-hover:opacity-100 blur-lg transition-all duration-300 rounded-xl"
+                  layoutId="mobileMenuHover"
+                />
               </motion.button>
               <motion.button
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ x: 10, backgroundColor: 'rgba(var(--yinmn-blue), 0.1)' }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => handleClick('certifications')}
-                className="w-full text-left px-4 py-2 text-lg font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors"
+                className="w-full text-left px-4 py-2 text-lg font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-all duration-300 rounded-xl relative group"
               >
-                Certifications
+                <span className="relative z-10">Certifications</span>
+                <motion.div
+                  className="absolute inset-0 -z-10 bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent opacity-0 group-hover:opacity-100 blur-lg transition-all duration-300 rounded-xl"
+                  layoutId="mobileMenuHover"
+                />
               </motion.button>
               <motion.button
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ x: 10, backgroundColor: 'rgba(var(--yinmn-blue), 0.1)' }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => handleClick('projects')}
-                className="w-full text-left px-4 py-2 text-lg font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors"
+                className="w-full text-left px-4 py-2 text-lg font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-all duration-300 rounded-xl relative group"
               >
-                Projects
+                <span className="relative z-10">Projects</span>
+                <motion.div
+                  className="absolute inset-0 -z-10 bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent opacity-0 group-hover:opacity-100 blur-lg transition-all duration-300 rounded-xl"
+                  layoutId="mobileMenuHover"
+                />
               </motion.button>
               <motion.button
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ x: 10, backgroundColor: 'rgba(var(--yinmn-blue), 0.1)' }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => handleClick('contact')}
-                className="w-full text-left px-4 py-2 text-lg font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors"
+                className="w-full text-left px-4 py-2 text-lg font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-all duration-300 rounded-xl relative group"
               >
-                Contact
+                <span className="relative z-10">Contact</span>
+                <motion.div
+                  className="absolute inset-0 -z-10 bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent opacity-0 group-hover:opacity-100 blur-lg transition-all duration-300 rounded-xl"
+                  layoutId="mobileMenuHover"
+                />
               </motion.button>
             </nav>
           </motion.div>

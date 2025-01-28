@@ -5,6 +5,8 @@ import { VscCode, VscCopilot, VscTerminalCmd } from 'react-icons/vsc'
 import ProjectCard from '../components/ProjectCard'
 import ContactForm from '../components/ContactForm'
 import AnimatedButton from '../components/AnimatedButton'
+import VFXReveal from '../components/VFXReveal'
+import AnimatedName from '../components/AnimatedName'
 import { 
   scrollAnimation, 
   scrollAnimationFromLeft, 
@@ -114,18 +116,14 @@ export default function Home() {
                 variants={staggerItem}
                 className="text-7xl font-medium tracking-tight mb-8 text-rich-black dark:text-platinum"
               >
-                Hi, I'm{' '}
-                <motion.span 
-                  className="relative inline-block font-['Geist_Sans'] animated-gradient-text"
+                <VFXReveal 
+                  speed={1} 
+                  delay={0.1}
+                  className="inline-block"
                 >
-                  Pahan Lankage
-                  <motion.span
-                    className="absolute -bottom-2 left-0 w-full h-1 bg-yinmn-blue rounded-full"
-                    initial={{ scaleX: 0, originX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                  />
-                </motion.span>
+                  Hi, I'm{' '}
+                </VFXReveal>
+                <AnimatedName />
               </motion.h1>
               
               <motion.p 

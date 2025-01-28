@@ -56,10 +56,17 @@ export default function BackToTop() {
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
             onClick={scrollToTop}
-            className="p-3 bg-yinmn-blue dark:bg-oxford-blue rounded-full shadow-lg"
+            className="p-3 bg-gradient-to-r from-yinmn-blue via-oxford-blue to-yinmn-blue rounded-xl shadow-lg relative group overflow-hidden"
             aria-label="Back to top"
           >
-            <ArrowUpIcon className="w-6 h-6 text-platinum" />
+            <ArrowUpIcon className="w-6 h-6 text-platinum relative z-10" />
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-yinmn-blue/20 to-transparent opacity-0 group-hover:opacity-100 blur-xl transition-opacity"
+              animate={{
+                scale: isHovered ? 1.2 : 1,
+              }}
+              transition={{ duration: 0.3 }}
+            />
           </motion.button>
         </div>
       )}

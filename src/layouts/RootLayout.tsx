@@ -78,58 +78,100 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <div className="flex justify-between items-center">
             <button 
               onClick={() => scrollToSection('hero')}
-              className={`text-2xl font-medium tracking-tight text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors`}
+              className={`text-2xl font-medium tracking-tight text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-all duration-300 relative group`}
             >
-              Pahan Lankage
+              <span className="relative z-10">Pahan Lankage</span>
+              <motion.div
+                className="absolute inset-0 -z-10 bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent opacity-0 group-hover:opacity-100 blur-lg transition-all duration-300"
+                whileHover={{ scale: 1.2 }}
+              />
             </button>
             <div className="flex items-center gap-4">
               <div className="hidden md:flex items-center gap-6 relative">
-                <button 
+                <motion.button 
                   onClick={() => scrollToSection('about')}
-                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
+                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-all duration-300 relative group`}
+                  whileHover={{ y: -2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  About
+                  <span className="relative z-10">About</span>
                   <NavIndicator isActive={activeSection === 'about'} />
-                </button>
-                <button 
+                  <motion.div
+                    className="absolute inset-0 -z-10 bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent opacity-0 group-hover:opacity-100 blur-lg transition-all duration-300"
+                    whileHover={{ scale: 1.2 }}
+                  />
+                </motion.button>
+                <motion.button 
                   onClick={() => scrollToSection('skills')}
-                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
+                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-all duration-300 relative group`}
+                  whileHover={{ y: -2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  Skills
+                  <span className="relative z-10">Skills</span>
                   <NavIndicator isActive={activeSection === 'skills'} />
-                </button>
-                <button 
+                  <motion.div
+                    className="absolute inset-0 -z-10 bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent opacity-0 group-hover:opacity-100 blur-lg transition-all duration-300"
+                    whileHover={{ scale: 1.2 }}
+                  />
+                </motion.button>
+                <motion.button 
                   onClick={() => scrollToSection('education')}
-                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
+                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-all duration-300 relative group`}
+                  whileHover={{ y: -2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  Education
+                  <span className="relative z-10">Education</span>
                   <NavIndicator isActive={activeSection === 'education'} />
-                </button>
-                <button 
+                  <motion.div
+                    className="absolute inset-0 -z-10 bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent opacity-0 group-hover:opacity-100 blur-lg transition-all duration-300"
+                    whileHover={{ scale: 1.2 }}
+                  />
+                </motion.button>
+                <motion.button 
                   onClick={() => scrollToSection('certifications')}
-                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
+                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-all duration-300 relative group`}
+                  whileHover={{ y: -2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  Certifications
+                  <span className="relative z-10">Certifications</span>
                   <NavIndicator isActive={activeSection === 'certifications'} />
-                </button>
-                <button 
+                  <motion.div
+                    className="absolute inset-0 -z-10 bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent opacity-0 group-hover:opacity-100 blur-lg transition-all duration-300"
+                    whileHover={{ scale: 1.2 }}
+                  />
+                </motion.button>
+                <motion.button 
                   onClick={() => scrollToSection('projects')}
-                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
+                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-all duration-300 relative group`}
+                  whileHover={{ y: -2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  Projects
+                  <span className="relative z-10">Projects</span>
                   <NavIndicator isActive={activeSection === 'projects'} />
-                </button>
-                <button 
+                  <motion.div
+                    className="absolute inset-0 -z-10 bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent opacity-0 group-hover:opacity-100 blur-lg transition-all duration-300"
+                    whileHover={{ scale: 1.2 }}
+                  />
+                </motion.button>
+                <motion.button 
                   onClick={() => scrollToSection('contact')}
-                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-colors relative`}
+                  className={`text-base font-medium text-rich-black dark:text-platinum hover:text-yinmn-blue dark:hover:text-silver-lake transition-all duration-300 relative group`}
+                  whileHover={{ y: -2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  Contact
+                  <span className="relative z-10">Contact</span>
                   <NavIndicator isActive={activeSection === 'contact'} />
-                </button>
+                  <motion.div
+                    className="absolute inset-0 -z-10 bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent opacity-0 group-hover:opacity-100 blur-lg transition-all duration-300"
+                    whileHover={{ scale: 1.2 }}
+                  />
+                </motion.button>
               </div>
-              <button
+              <motion.button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-oxford-blue/50 transition-colors"
+                className="p-2 rounded-xl hover:bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent transition-all duration-300"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 aria-label="Toggle dark mode"
               >
                 {isDarkMode ? (
@@ -137,14 +179,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 ) : (
                   <MoonIcon className="h-6 w-6 text-rich-black" />
                 )}
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-oxford-blue/50 transition-colors"
+                className="md:hidden p-2 rounded-xl hover:bg-gradient-to-r from-yinmn-blue/10 via-yinmn-blue/5 to-transparent transition-all duration-300"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 aria-label="Open menu"
               >
                 <Bars3Icon className="h-6 w-6 text-rich-black dark:text-platinum" />
-              </button>
+              </motion.button>
             </div>
           </div>
         </nav>
